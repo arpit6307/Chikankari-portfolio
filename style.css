@@ -1,4 +1,10 @@
 /* ================== GLOBAL ================== */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
 :root {
   --primary: #4b3e34;
   --secondary: #c7b2a3;
@@ -97,7 +103,7 @@ section h2 {
 
 /* ================== GALLERY GRID & SLIDER (index.html) ================== */
 
-/* Desktop View: Grid Layout (Default) */
+/* Desktop Grid Layout */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -127,11 +133,11 @@ section h2 {
   transform: scale(1.05);
 }
 
-/* Slider Arrows (Hidden on Desktop by default) */
+/* Slider Arrows */
 .gallery-nav {
   display: none;
   position: absolute;
-  top: 40%; 
+  top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -150,42 +156,86 @@ section h2 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Mobile View: Slider Layout (for screens <= 768px) */
+.gallery-nav.left-4 { left: 10px; }
+.gallery-nav.right-4 { right: 10px; }
+
 @media (max-width: 768px) {
-  /* Arrows ko mobile par dikhayein */
-  .gallery-nav {
-    display: block;
+  .gallery-wrapper {
+    overflow: hidden; /* hide parts of other slides */
   }
-  
-  /* Grid ko flexbox slider mein badlein */
+
   .gallery-grid {
     display: flex;
-    grid-template-columns: none; /* Grid layout ko override karein */
-    gap: 0;
+    gap: 0;               /* remove horizontal gap */
     transition: transform 0.5s ease-in-out;
+    width: 100%;
   }
 
   .gallery-item {
-    min-width: 100%; /* Har item puri width le */
+    width: 100%;          /* one image per frame */
     flex-shrink: 0;
-    box-shadow: none; /* Mobile par shadow hatayein */
-    transform: none;   /* Hover effects ko reset karein */
-    transition: none;
+    max-width: cover;
+    height: 450px;        /* fixed card height */
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
   }
-  
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain; 
+    max-width: cover;  /* ensures full image visible */
+    object-position: top;  /* align image from top */
+    border-radius: 12px;
+  }
+}
+/* Target devices from 425px down to 280px */
+@media (max-width: 425px) and (min-width: 280px) {
+  .gallery-wrapper {
+    overflow: hidden;
+  }
+
+  .gallery-grid {
+    display: flex;
+    gap: 0;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .gallery-item {
+    width: 100%;
+    flex-shrink: 0;
+    height: 300px;       /* smaller height for small screens */
+    border-radius: 10px; /* slightly smaller rounding */
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+    border-radius: 10px;
+  }
+}
+
+
+  /* Remove hover effects on mobile */
   .gallery-item:hover {
     transform: none;
     box-shadow: none;
   }
-  
+
   .gallery-item:hover img {
-      transform: none; /* Mobile par image zoom effect hatayein */
+    transform: none;
   }
 
-  .gallery-item img {
-    border-radius: 12px;
-  }
-}
+
 
 /* ================== FOOTER ================== */
 .footer {
