@@ -45,7 +45,7 @@
       </div>
     </section>
   </main>
-  
+
   <footer class="footer bg-[#4b3e34] text-[#f7f3ed] py-12">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
       <div>
@@ -60,7 +60,7 @@
       <div>
         <h4 class="font-cormorant text-xl font-semibold mb-4">Quick Links</h4>
         <ul class="space-y-2">
-          <li><a href="index.html#about" class="hover:text-[#c7b2a3]">About Us</a></li>
+          <li><a href="#about" class="hover:text-[#c7b2a3]">About Us</a></li>
           <li><a href="#gallery" class="hover:text-[#c7b2a3]">Our Gallery</a></li>
         </ul>
       </div>
@@ -69,7 +69,7 @@
         <ul class="space-y-2">
           <li><button id="open-privacy-policy-btn" class="hover:text-[#c7b2a3] text-left">Privacy Policy</button></li>
           <li><button id="open-terms-of-service-btn" class="hover:text-[#c7b2a3] text-left">Terms of Service</button></li>
-          <li><a href="index.html#contact" class="hover:text-[#c7b2a3]">Contact Us</a></li>
+          <li><a href="#contact" class="hover:text-[#c7b2a3]">Contact Us</a></li>
         </ul>
       </div>
       <div>
@@ -91,7 +91,9 @@
   <div id="contact-popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 hidden opacity-0">
       <div id="contact-popup-content" class="bg-[var(--light)] text-[var(--primary)] rounded-xl shadow-2xl p-8 w-full max-w-lg relative transform scale-95">
           <button id="close-popup-btn" class="absolute top-4 right-5 text-3xl font-bold text-[var(--primary)] hover:text-[var(--secondary)] transition-colors">&times;</button>
+          
           <h2 class="font-cormorant text-4xl font-bold mb-6 text-center">Get in Touch</h2>
+          
           <form id="contact-form" class="space-y-4">
               <input type="hidden" name="contact_number">
               <div>
@@ -215,15 +217,10 @@
     </div>
   </div>
 
-
-  <div id="lightbox-modal" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center hidden p-4">
-    <button id="lightbox-close" class="absolute top-6 right-6 text-white text-5xl font-bold">&times;</button>
-    <button id="lightbox-prev" class="absolute left-4 sm:left-10 text-white text-4xl p-2">‹</button>
-    <img id="lightbox-image" src="" alt="Full-screen Chikankari Design" class="max-w-full max-h-[90vh] object-contain">
-    <button id="lightbox-next" class="absolute right-4 sm:right-10 text-white text-4xl p-2">›</button>
-  </div>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <div id="toast-notification" class="fixed bottom-8 right-8 text-white py-3 px-6 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-500"></div>
+  
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script> 
+  
 </body>
 </html>
